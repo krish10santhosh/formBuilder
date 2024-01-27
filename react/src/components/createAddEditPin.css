@@ -1,0 +1,252 @@
+.addIcon {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 12px 8px;
+    background-color: rgb(240, 242, 245);
+    float: left;
+}
+
+.addIcon:hover {
+    background-color: rgb(240, 242, 245);
+}
+
+.pin_container {
+    border: none !important;
+    margin: 0px 0px 20px 0px;
+}
+
+.add_Pin_CardHeader {
+    border: none !important;
+}
+
+.my-masonry-grid {
+    display: flex;
+    margin: 20px 0px 0 0;
+    width: auto;
+}
+
+.my-masonry-grid_column {
+    padding-left: 10px;
+    background-clip: padding-box;
+}
+
+.pin_CardHeader {
+    padding: 10px 0 0 0;
+    text-transform: capitalize;
+}
+
+.add_Pin_CardHeader {
+    padding: 10px 0 0 0;
+    text-transform: capitalize;
+}
+
+.pin_CardHeader .MuiCardHeader-avatar {
+    margin-right: 5px;
+}
+
+.pin_container .MuiCardContent-root {
+    text-align: left;
+    padding: 0px 10px 0px 0px;
+    position: relative;
+}
+
+.add_Pin_Container .MuiCardContent-root {
+    text-align: left;
+    margin: 0 0px 0px 10px;
+    padding: 0 0 20px 0;
+}
+
+.add_Pin_Container_matches .MuiCardContent-root {
+    text-align: left;
+    margin: 0 0px 0px 10px;
+    padding: 0 0 20px 0;
+}
+
+img.MuiCardMedia-root.MuiCardMedia-media {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add_Pin_CardHeader .MuiAvatar-root {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.add_Pin_CardHeader .MuiCardHeader-avatar {
+    margin-right: 10px;
+}
+
+.add_Pin_Container .MuiFormControl-root {
+    width: 100%;
+    margin: 20px 0 0px 0;
+    background: #fff;
+}
+
+.add_Pin_Container_matches .MuiFormControl-root {
+    width: 100%;
+    margin: 20px 0 0px 0;
+    background: #fff;
+}
+
+.add_Pin_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 85%;
+    height: calc(100vh - 315px);
+    margin: 50px 0px;
+    border-radius: 10px;
+    background: rgb(240, 242, 245);
+    padding: 30px;
+    border: 1px solid rgb(203, 205, 210);
+}
+
+.add_Pin_Container_matches {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 50px 20px;
+    border-radius: 10px;
+    background: rgb(240, 242, 245);
+    padding: 10px;
+    border: 1px solid rgb(203, 205, 210);
+}
+
+.MuiListItemIcon-root {
+    min-width: 35px;
+}
+
+.add_Pin_Container .MuiCardHeader-title {
+    color: black;
+    font-size: 19px;
+}
+
+.add_Pin_Container_matches .MuiCardActions-root {
+    float: right;
+    position: relative;
+    top: 15px;
+}
+
+.MuiCardActions-root {
+    justify-content: flex-end;
+}
+
+.add_Pin_Container .MuiCardHeader-title {
+    color: black;
+    font-size: 19px;
+}
+
+.add_Pin_Container_matches .MuiCardActions-root {
+    float: right;
+    position: relative;
+    top: 15px;
+}
+
+.image_background {
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.image_background .MuiTypography-root {
+    text-transform: capitalize;
+}
+
+.Icon {
+    position: absolute;
+    float: right;
+    right: 20px;
+    top: 22px;
+    padding: 2px;
+    cursor: pointer;
+    color: rgb(5, 5, 5);
+    background: white;
+    border-radius: 50%;
+}
+
+.imageContent {
+    width: 42%;
+    height: 92%;
+    border: 1px solid rgb(203, 205, 210);
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.imageContentmatches {
+    width: 100%;
+    height: 300px;
+    border: 1px solid rgb(203, 205, 210);
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    margin: 20px 0px 0px 0px;
+}
+
+.pin_container .MuiButtonBase-root.MuiIconButton-root {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 1px solid white;
+    width: 35px;
+    height: 35px;
+    background: white;
+}
+
+.save_Button {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background-color: #ec0d34;
+}
+
+.MuiCardHeader-content {
+    flex: none;
+}
+
+.centeredDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 0px 5px !important;
+    margin: 0px 4px 0px 12px;
+}
+
+.profileCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 25px 0px 0 0;
+}
+
+.profileEditProfileButton {
+    margin: 10px;
+    background: #efefef;
+    color: black;
+    border-radius: 15px;
+    box-shadow: none;
+    text-transform: capitalize;
+}
+
+.nav-link {
+    color: black !important;
+}
+
+.nav-tabs .nav-link {
+    border: none !important;
+    font-weight: 400;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    border-bottom: 2px solid !important;
+}

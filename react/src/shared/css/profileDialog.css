@@ -1,0 +1,161 @@
+.scroll-dialog {
+  width: calc(100vh - 220px) !important;
+  max-width: 805px !important;
+}
+
+.scroll-dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin: 0px;
+  font-size: 20px;
+  color: #ec0d33;
+}
+
+.closeIcon {
+  border: 1px solid transparent;
+  background: #efefef;
+  color: #ec0d33;
+  padding: 2px;
+}
+
+.closeIcon:hover {
+  border: 1px solid transparent;
+  background: #efefef;
+  color: #ec0d33;
+  padding: 2px;
+}
+
+.MuiCardContent-root {
+  padding: 0px !important;
+}
+
+.profilePictureText {
+  margin: 0px;
+  font-size: 18px;
+  color: #ec0d33;
+  cursor: pointer;
+  text-align: end;
+}
+
+.centeredProfileDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bioDiv {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.bioDiv .MuiTypography-root {
+  color: #ec0d33;
+  margin: 0px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.bioDivText {
+  margin: 15px 0px;
+}
+
+.buttonDiv {
+  color: #ec0d33;
+  margin: 0px;
+  font-size: 18px;
+  cursor: pointer;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  background: #efefef;
+  border-radius: 10px;
+}
+
+.centeredDiv img {
+  width: 15px;
+  height: 15px;
+  margin: 0px 4px 0px 5px;
+}
+
+svg.svg-inline--fa.fa-graduation-cap {
+  color: gray !important;
+  margin: 0 10px 0 0;
+}
+
+svg.svg-inline--fa.fa-house {
+  color: gray !important;
+  margin: 0 10px 0 0;
+}
+
+svg.svg-inline--fa.fa-map-location-dot {
+  color: gray !important;
+  margin: 0 10px 0 0;
+}
+
+svg.svg-inline--fa.fa-heart {
+  color: gray !important;
+  margin: 0 10px 0 0;
+}
+
+svg.svg-inline--fa.fa-cake-candles {
+  color: gray !important;
+  margin: 0 10px 0 0;
+}
+
+.tab-content {
+  border: none !important;
+  padding: 15px;
+}
+
+.css-1v5z4dq-MuiPaper-root-MuiCard-root {
+  border: none !important;
+}
+
+ul.mb-3.nav.nav-tabs {
+  border: none !important;
+  justify-content: center;
+}
+
+span.MuiTypography-root.MuiTypography-h5.MuiCardHeader-title.css-1qvr50w-MuiTypography-root {
+  font-weight: bold !important;
+  font-size: 20px;
+}
+
+.IntroDiv {
+  display: flex;
+  flex: 0 0 100px;
+  padding: 10px;
+}
+
+.IntroProfile {
+  display: flex;
+  align-items: center;
+  flex: 0 0 100px;
+}
+
+.Intro {
+  margin: 10px 0px;
+  align-items: center;
+}
+
+.Intro .MuiTypography-root {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0px 10px 1px 0px;
+}
+
+.IntroProfileIcon {
+  color: #8C939D;
+  font-size: 22px;
+  margin: 0 10px 0px 0px;
+}
+
+.IntroDivValue {
+  font-size: 14px !important;
+  margin: 0px !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}

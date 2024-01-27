@@ -1,0 +1,53 @@
+.MuiListSubheader-root {
+    padding: 5px 20px 5px 30px;
+}
+
+.MuiListItemButton-root {
+    padding: 5px 20px 5px 30px;
+}
+
+.MuiInputBase-input {
+    /* height: 10px !important; */
+}
+
+.MuiOutlinedInput-root {
+    /* padding: 0px 0px 0px 9px !important; */
+}
+
+.navbarIcon {
+    padding: 0px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 10px;
+    text-wrap: wrap;
+    width: 60px;
+    text-align: left;
+}
+
+.navbarTitle {
+    padding: 0px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.accounts_lists {
+    width: 450px;
+    z-index: 111;
+    background-color: white;
+    padding: 20px;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+
+.card-text {
+    margin: 0;
+    font-size: 13px;
+}
+
+.card-title.h5 {
+    margin: 0px 0 10px 0;
+    font-weight: bold;
+}
+
