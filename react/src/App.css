@@ -30,14 +30,21 @@
 
 .css-awoell-MuiPaper-root-MuiAppBar-root {
   background-color: white;
-    color: black;
-    box-shadow: none;
+  color: black;
+  box-shadow: none;
+}
+
+.MuiButtonBase-root-MuiListItem-root:hover {
+  background: rgb(240, 247, 255);
+  color: #ed1b24;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

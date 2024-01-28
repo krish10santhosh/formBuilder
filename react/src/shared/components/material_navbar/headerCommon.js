@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -13,8 +13,7 @@ import { useDispatch } from 'react-redux';
 import { Avatar, Box, InputBase, Popover } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MailIcon from '@mui/icons-material/Mail';
-import SearchIcon from '@mui/icons-material/Search';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const drawerWidth = 300;
 
@@ -36,63 +35,11 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-            cursor: 'text'
-        },
-    },
-}));
-
-const InputBaseStyle = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(0)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-            background: 'rgb(240, 242, 245)'
-        },
-    },
-}));
-
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(2),
-        width: 'auto',
-    },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}));
-
-const HeaderComponent = () => {
+const HeaderComponent = ({
+    showAdd = true,
+    openDrawer = true,
+    setOpenDrawer
+}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [open, setOpen] = useState(true);
@@ -100,7 +47,6 @@ const HeaderComponent = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    const [anchorElPopover, setAnchorElPopover] = useState(null);
     const [notificationEl, setNotificationEl] = useState(null);
     const openNotificationEl = Boolean(notificationEl);
     const notification_Id = openNotificationEl ? 'notification-popover' : undefined;
@@ -229,82 +175,37 @@ const HeaderComponent = () => {
         // e.target.src = require('../../assets/images/avatar.jpg')
     }
 
-    const handleClickPopover = (event) => {
-        setAnchorElPopover(event.currentTarget);
-    };
-
-    const handleClosePopover = () => {
-        setAnchorElPopover(null);
-    };
-
-    const handleCloseSearch = () => {
-        setAnchorElPopover(null);
+    const handleClickAdd = () => {
+        setOpenDrawer(true)
     }
-
-    const openPopover = Boolean(anchorElPopover);
-    const id = open ? 'simple-popover' : undefined;
 
     return (
         <>
             <AppBar position="fixed" open={open}>
                 <Toolbar>
-                    <Search aria-describedby={id} variant="contained" onClick={handleClickPopover}>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase className='search'
-                            placeholder="Search"
-                            inputProps={{ 'aria-label': 'search' }}
-                            disabled
-                        />
-                    </Search>
-                    <Popover
-                        id={id}
-                        open={openPopover}
-                        anchorEl={anchorElPopover}
-                        onClose={handleClosePopover}
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                    >
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            alignContent: 'center'
-                        }}>
-                            <ArrowBackIcon onClick={handleCloseSearch} style={{
-                                cursor: 'pointer'
-                            }} />
-                            <Search aria-describedby={id} variant="contained">
-                                <InputBaseStyle
-                                    placeholder="Search"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                    inputRef={input => input && input.focus()}
-                                />
-                            </Search>
-                        </div>
-                    </Popover>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        {
+                            showAdd ?
+                                <IconButton size="large" aria-label="show 0 new mails" color="inherit" onClick={(e) => handleClickAdd(e)}>
+                                    <AddCircleIcon sx={{
+                                        color: "rgb(231, 44, 72)"
+                                    }} />
+                                </IconButton> : null
+                        }
                         <IconButton size="large" aria-label="show 0 new mails" color="inherit">
-                            <Badge badgeContent={0} color="error">
-                                <MailIcon />
-                            </Badge>
+                            <MailIcon sx={{
+                                color: "rgb(231, 44, 72)"
+                            }} />
                         </IconButton>
                         <IconButton onClick={(e) => handleClickNotifications(e)}
                             size="large"
                             aria-label={"0"}
                             color="inherit"
                         >
-                            <Badge badgeContent={"0"} color="error">
-                                <NotificationsIcon />
-                            </Badge>
+                            <NotificationsIcon sx={{
+                                color: "rgb(231, 44, 72)"
+                            }} />
                         </IconButton>
                         <IconButton
                             size="large"

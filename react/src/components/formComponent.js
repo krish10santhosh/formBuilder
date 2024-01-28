@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getHomePicturesData } from "../slices/homeSlice";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { Box, Grid } from "@mui/material";
-import { CircularProgress } from "@mui/material";
-import { getUserProfileDetails } from "../slices/profileSlice";
+import HeaderComponent from "../shared/components/material_navbar/headerCommon";
+import AlertDialogSlide from "../shared/components/transitiondialog";
+import { CreateDynamicForm, CreateFormContent, FormTabvalue } from "../shared/constants/constants";
+import { useNavigate } from "react-router-dom";
 
 const FormComponent = () => {
     const dispatch = useDispatch();
-    const [page, setPage] = useState(1);
-    const [count, setCount] = useState(30);
+    const navigate = useNavigate();
     const tokenData = useSelector((state) => state.dashboardreducer.dashboarddata.tokenData);
-    const feedData = useSelector((state) => state.homereducer.picturesdata);
-    const profileData = useSelector((state) => state.profilereducer.profiledata);
-    const [feedDataValue, setfeedDataValue] = useState([]);
-    const [total, setTotal] = useState(0);
+    const [open, setOpen] = useState(true);
+    const [openDrawer, setOpenDrawer] = useState(false);
 
     useEffect(() => {
 
@@ -22,29 +19,37 @@ const FormComponent = () => {
 
     useEffect(() => {
 
-    }, [feedData]);
+    }, []);
 
-    const fetchMoreData = () => {
+    const onClose = () => {
+        setOpenDrawer(false)
+    };
 
+    const handleClickForms = (data) => {
+        setOpenDrawer(false)
+        if (data === "Dynamic Forms") {
+            navigate("/forms/createDynamicForms")
+        }
     };
 
     return (
         <>
-            {
-                feedData?.isloading === true ||
-                    profileData?.isloading === true
-                    ? (<CircularProgress className="centered" />) : null
-            }
             <Box sx={{ width: "100%" }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <InfiniteScroll
-                            dataLength={feedDataValue?.length}
-                            next={fetchMoreData}
-                            hasMore={true}
-                            loader={feedDataValue && feedDataValue.isloading === true ? (<CircularProgress className="centered" />) : null}
-                        >
-                        </InfiniteScroll>
+                        <HeaderComponent showAdd={true} openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+                        {
+                            openDrawer ?
+                                <>
+                                    <AlertDialogSlide
+                                        handleClose={onClose}
+                                        open={open}
+                                        data={FormTabvalue}
+                                        title={CreateDynamicForm}
+                                        content={CreateFormContent}
+                                        handleClickForms={handleClickForms} />
+                                </> : null
+                        }
                     </Grid>
                 </Grid>
             </Box>

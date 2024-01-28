@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Drawer } from "@mui/material";
 
 const DrawerComponent = (props) => {
-  const { onClose, open, anchorValue } = props;
+  const { onClose, open, anchorValue, list } = props;
 
 
   return (
@@ -23,6 +23,7 @@ const DrawerComponent = (props) => {
           color: 'gray',
           cursor: 'pointer'
         }} onClick={onClose} />
+        {list}
       </Drawer>}
     </div>
   )

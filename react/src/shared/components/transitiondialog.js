@@ -7,20 +7,18 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useSelector } from 'react-redux';
-import SearchComponent from '../../components/searchComponent';
 import CloseIcon from '@mui/icons-material/Close';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import Avatar from '@mui/material/Avatar';
+import { Box, Paper, Typography } from '@mui/material';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const AlertDialogSlide = ({ open, handleClose, eventData }) => {
+const AlertDialogSlide = ({ open, handleClose, data, title, content, handleClickForms }) => {
   return (
     <>
-      {eventData &&
+      {data &&
         <Dialog
           open={open}
           TransitionComponent={Transition}
@@ -32,7 +30,7 @@ const AlertDialogSlide = ({ open, handleClose, eventData }) => {
           <Card>
             <DialogTitle sx={{
               padding: '15px 15px'
-            }}>Event Intrested Persons</DialogTitle>
+            }}>{title}</DialogTitle>
             <CloseIcon style={{
               position: 'absolute',
               float: 'right',
@@ -46,23 +44,28 @@ const AlertDialogSlide = ({ open, handleClose, eventData }) => {
               padding: '0px 15px 15px 15px'
             }}>
               <DialogContentText id="alert-dialog-slide-description">
-                These are the Persons Who are Intrested in the Event
-                {
-                  eventData?.map((data) => (
-                    <CardHeader sx={{
-                      padding: '15px 10px 0px 0'
-                    }}
-                      avatar={
-                        <Avatar src={data.owner.profilepicture} sx={{
-                          width: 40, height: 40, margin: '0px',
-                          padding: '0px'
-                        }} />
-                      }
-                      title={<>{data.owner.firstName} {data.owner.lastName}</>}
-                    />
-                  ))
-                }
+                {content}
               </DialogContentText>
+              <Box
+                    sx={{
+                        display: 'flex',
+                        textAlign: 'center',
+                        '& > :not(style)': {
+                            padding: '15px',
+                            width: '160px',
+                            margin: '15px',
+                            cursor: 'pointer'
+                        },
+                    }}
+                >
+              {
+                data?.map((data) => (
+                  <Paper variant="outlined" square onClick={() => handleClickForms(data.tabTitle)}>
+                    <Typography variant="subtitle1" style={{ fontWeight: '600' }}>{data.tabTitle}</Typography>
+                  </Paper>
+                ))
+              }
+              </Box>
             </DialogContent>
           </Card>
         </Dialog>

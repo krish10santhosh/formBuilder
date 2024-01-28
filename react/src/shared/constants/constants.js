@@ -134,14 +134,56 @@ export const searchItems = [
     }
 ]
 
-export const snapKartListItems = [{
-    key1: "Accounts",
-    key2: "& Lists"
-},
-{
-    key1: "Returns",
-    key2: "& Orders"
-}];
+export const formItems = [
+    {
+        key: "text",
+        value: "Input Text"
+    },
+    {
+        key: "button",
+        value: "Button"
+    },
+    {
+        key: "password",
+        value: "Input Password"
+    },
+    {
+        key: "select",
+        value: "Select Group"
+    },
+    {
+        key: "checkbox",
+        value: "Checkbox Group"
+    },
+    {
+        key: "radio",
+        value: "Radio Group"
+    },
+    {
+        key: "textarea",
+        value: "Text Area"
+    },
+    {
+        key: "email",
+        value: "Email"
+    },
+    {
+        key: "search",
+        value: "Search"
+    },
+    {
+        key: "datetime",
+        value: "Date Time"
+    },
+    {
+        key: "file",
+        value: "File Upload"
+    },
+    {
+        key: "autocomplete",
+        value: "Auto Complete"
+    },
+];
 
 export const pinOptions = [
     {
@@ -221,17 +263,21 @@ export const genderData = [
     }
 ]
 
-export const profileTabvalue = [
+export const FormTabvalue = [
     {
-        tabTitle: "Created",
-        component: "UserPinsComponent"
+        tabTitle: "Dynamic Forms",
+        icon: 'FormatAlignLeftIcon',
     },
     {
-        tabTitle: "Saved",
-        component: "UserSavedPinsComponent"
+        tabTitle: "Template Forms",
+        icon: 'ReorderIcon',
     }
 ];
 
+export const FormBuilder = "Form Builder";
+export const CreateDynamicForm = "Create Forms";
+export const CreateTemplateForm = "Create Template Forms";
+export const CreateFormContent = "Create Forms based on your Content";
 export const Update = "Update";
 export const Cancel = "Cancel";
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { useDispatch } from "react-redux";
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -6,7 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import { IconButton, ListItemButton, Typography } from "@mui/material";
+import { Avatar, IconButton, ListItemButton, Typography } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { Collapse } from "@mui/material";
@@ -14,6 +14,9 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { hasChildren } from '../../utils/listUtil';
 import MenuIcon from '@mui/icons-material/Menu';
+import SpeedIcon from '@mui/icons-material/Speed';
+import BrandingWatermarkIcon from '@mui/icons-material/BrandingWatermark';
+import { FormBuilder } from '../../constants/constants';
 
 const drawerWidth = 300;
 
@@ -69,6 +72,7 @@ const NavBarComponent = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     const [open, setOpen] = React.useState(true);
+    const logo = require('../../../assets/images/icon.png');
     // const componentData = useSelector((state) => state.homereducer.feeddata.drawerData);
     // const components = {
 
@@ -82,10 +86,12 @@ const NavBarComponent = () => {
         {
             text: "Dashboard",
             onClick: () => navigate('/dashboard'),
+            icon: <SpeedIcon />
         },
         {
-            text: "Forms",
+            text: "Form Builder",
             onClick: () => navigate('/forms'),
+            icon: <BrandingWatermarkIcon />
         },
     ];
 
@@ -97,13 +103,13 @@ const NavBarComponent = () => {
     const SingleLevel = ({ item, handleClick }) => {
 
         return (
-            <ListItem button key={item.text} onClick={handleClick}>
+            <ListItem button key={item.text} onClick={handleClick} sx={{
+                padding: 0
+            }}>
                 <ListItemButton
                     sx={{
-                        minHeight: 48,
+                        minHeight: 28,
                         justifyContent: open ? 'initial' : 'left',
-                        marginRight: '18px',
-                        px: 0.5,
                     }}
                 >
                     {item.icon &&
@@ -112,11 +118,12 @@ const NavBarComponent = () => {
                                 minWidth: 0,
                                 mr: open ? 2 : 'auto',
                                 justifyContent: 'left',
+                                color: "rgb(231, 44, 72)"
                             }}>
                             {item.icon}
                         </ListItemIcon>
                     }
-                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0, margin: 0 }} />
                 </ListItemButton>
             </ListItem>
         );
@@ -173,16 +180,20 @@ const NavBarComponent = () => {
                     <NavLink
                         to="/dashboard"
                         style={{
-                            textDecoration: 'none'
+                            textDecoration: 'none',
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center"
                         }}
                     >
+                        <Avatar src={logo} sx={{ width: 40, height: 40, margin: "0 5px" }} />
                         <Typography variant="h6" noWrap component="div"
                             style={{
                                 fontWeight: 'bold',
                                 fontSize: '25px',
-                                color: "#0d62a6"
+                                color: "#ed1b24"
                             }}>
-                            Form Builder
+                            {FormBuilder}
                         </Typography>
                     </NavLink> : null
                 }
