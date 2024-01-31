@@ -1,13 +1,20 @@
 .addIcon {
-    border: 1px solid #fff;
-    border-radius: 10px;
-    padding: 12px 8px;
-    background-color: rgb(240, 242, 245);
-    float: left;
+    background: #e72c48;
+    color: white;
+    border-radius: 5px;
+    height: 22px;
+    width: 20px;
+    margin: 0 4px;
+}
+
+.addElement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .addIcon:hover {
-    background-color: rgb(240, 242, 245);
+    background-color: #e72c48;
 }
 
 .pin_container {

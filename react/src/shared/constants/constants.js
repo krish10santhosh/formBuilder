@@ -137,51 +137,63 @@ export const searchItems = [
 export const formItems = [
     {
         key: "text",
-        value: "Input Text"
+        value: "Input Text",
+        id: "1"
     },
     {
         key: "button",
-        value: "Button"
+        value: "Button",
+        id: "2"
     },
     {
         key: "password",
-        value: "Input Password"
+        value: "Input Password",
+        id: "3"
     },
     {
         key: "select",
-        value: "Select Group"
+        value: "Select Group",
+        id: "4"
     },
     {
         key: "checkbox",
-        value: "Checkbox Group"
+        value: "Checkbox Group",
+        id: "5"
     },
     {
         key: "radio",
-        value: "Radio Group"
+        value: "Radio Group",
+        id: "6"
     },
     {
         key: "textarea",
-        value: "Text Area"
+        value: "Text Area",
+        id: "7"
     },
     {
         key: "email",
-        value: "Email"
+        value: "Email",
+        id: "8"
     },
     {
         key: "search",
-        value: "Search"
+        value: "Search",
+        id: "9"
     },
     {
         key: "datetime",
-        value: "Date Time"
+        value: "Date Time",
+        id: "10"
     },
     {
         key: "file",
-        value: "File Upload"
+        value: "File Upload",
+        id: "11"
     },
     {
         key: "autocomplete",
-        value: "Auto Complete"
+        value: "Auto Complete",
+        id: "12"
     },
 ];
 
