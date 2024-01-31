@@ -3,7 +3,6 @@ import { Box, Grid } from "@mui/material";
 import HeaderComponent from "../shared/components/material_navbar/headerCommon";
 
 const DashboardComponent = () => {
-
     return (
         <>
             <Box sx={{ width: "100%" }}>
