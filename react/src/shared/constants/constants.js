@@ -1,14 +1,3 @@
-
-
-export const IdlePopup = {
-    Title: "Session Expired !!!",
-    Desctiprion: "Your Session has been expired. Kindly Login again",
-    Accept: "Ok",
-    Alert: "Alert"
-}
-
-export const drawerWidth = 300;
-
 export const formItems = [
     {
         key: "text",
