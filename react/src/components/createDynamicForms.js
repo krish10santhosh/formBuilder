@@ -34,7 +34,6 @@ const CreateDynamicForms = () => {
     const onDraghandle = (result) => {
         if (result.source.droppableId == "formList" && result.destination.droppableId == "forms") {
             const formlist = formItems?.find(x => x.id === result.draggableId);
-            console.log(formlist)
             formlist.id = uuidv4();
             setFormData([...formData, formlist]);
         }
@@ -51,10 +50,6 @@ const CreateDynamicForms = () => {
         setIsShown(true);
     }
 
-    const handleOpen = () => {
-        setIsShown(true);
-    }
-
     const handleDeleteElement = (id) => {
         let data = formData?.filter(x => x.id !== id);
         setFormData(data)
@@ -62,15 +57,12 @@ const CreateDynamicForms = () => {
 
     const handleCopyElement = (id, index) => {
         let data = (formData?.filter(x => x.id === id));
-        console.log(data)
         let value = data?.map((val) => val)
-        console.log([...value])
         let indexData = data.splice(index + 1, 0, {
             id: "fd510364-e6c8-4bbb-87cb-b1537e190f40",
             key: "text",
             value: "Input Text"
         });
-        console.log(indexData)
         setFormData(indexData)
     }
 
