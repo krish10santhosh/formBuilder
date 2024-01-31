@@ -72,37 +72,6 @@ export const formItems = [
     },
 ];
 
-export const pinOptions = [
-    {
-        title: 'Delete',
-        icon: 'Delete',
-        tooltip: 'Delete current Pin'
-    },
-    {
-        title: 'Duplicate',
-        icon: 'FileCopy',
-        tooltip: 'Duplicate current Pin'
-    }
-];
-
-export const pinEditOptions = [
-    {
-        title: 'Edit Pin',
-        icon: 'Edit',
-        tooltip: ''
-    },
-    {
-        title: 'Delete Pin',
-        icon: 'Delete',
-        tooltip: ''
-    },
-    {
-        title: 'Report Pin',
-        icon: 'Report',
-        tooltip: ''
-    }
-];
-
 export const FormTabvalue = [
     {
         tabTitle: "Dynamic Forms",
