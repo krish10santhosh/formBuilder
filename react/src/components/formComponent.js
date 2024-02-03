@@ -13,14 +13,6 @@ const FormComponent = () => {
     const [open, setOpen] = useState(true);
     const [openDrawer, setOpenDrawer] = useState(false);
 
-    useEffect(() => {
-
-    }, [dispatch, tokenData?.id]);
-
-    useEffect(() => {
-
-    }, []);
-
     const onClose = () => {
         setOpenDrawer(false)
     };
