@@ -78,4 +78,5 @@ export const CreateTemplateForm = "Create Template Forms";
 export const CreateFormContent = "Create Forms based on your Content";
 export const Update = "Update";
 export const Cancel = "Cancel";
-
+export const title = "Please Drag and Drop form items here";
+export const SaveForm = "Save Form";

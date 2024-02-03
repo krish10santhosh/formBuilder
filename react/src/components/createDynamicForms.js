@@ -8,7 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import LabelComponent from "../shared/components/label";
-import { formItems } from "../shared/constants/constants";
+import { SaveForm, formItems, title } from "../shared/constants/constants";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import InputComponent from "../shared/components/forminput";
 import ButtonComponent from "../shared/components/button";
@@ -146,7 +146,7 @@ const CreateDynamicForms = () => {
                                                                             fontWeight: 600
                                                                         }}
                                                                         gutterBottom
-                                                                    >Please Drag and Drop formlist Fles here</Typography>
+                                                                    >{title}</Typography>
                                                                 </div>
                                                             ) : null
                                                         }
@@ -258,7 +258,7 @@ const CreateDynamicForms = () => {
                                             </Droppable>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small" variant="contained">Save Form</Button>
+                                            <Button size="small" variant="contained">{SaveForms}</Button>
                                         </CardActions>
                                     </Card>
                                 </Grid>
