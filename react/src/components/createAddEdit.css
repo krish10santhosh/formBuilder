@@ -17,6 +17,10 @@
     background-color: #e72c48;
 }
 
+.MuiOutlinedInput-input.Mui-disabled {
+    -webkit-text-fill-color: black;
+}
+
 img.MuiCardMedia-root.MuiCardMedia-media {
     border-radius: 10px;
     cursor: pointer;
