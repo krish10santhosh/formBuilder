@@ -7,6 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import LabelComponent from "../shared/components/label";
 import { formItems } from "../shared/constants/constants";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import InputComponent from "../shared/components/forminput";
@@ -16,7 +17,6 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { v4 as uuidv4 } from 'uuid';
 import './createAddEdit.css';
-import LabelComponent from "../shared/components/label";
 
 const getListStyle = isDraggingOver => ({
     backgroundColor: isDraggingOver ? '#8597fb' : '#fff',
@@ -78,13 +78,13 @@ const CreateDynamicForms = () => {
             setLabelValue(data?.labelName)
         }
         else {
-            setLabelValue("")
+            setLabelValue("");
         }
         if (data?.inputValue !== "") {
             setInputValue(data?.inputValue)
         }
         else {
-            setInputValue("")
+            setInputValue("");
         }
         setSelectedId(data?.id)
         setIsEdit(true);

@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material";
 import React from "react";
 
 const ButtonComponent = ({ handleClick, title, variant, color }) => {
-  console.log(handleClick, title, variant, color)
+  
   return (
     <div>
       <Box
