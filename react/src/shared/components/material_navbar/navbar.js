@@ -104,7 +104,7 @@ const NavBarComponent = () => {
 
         return (
             <ListItem button key={item.text} onClick={handleClick} sx={{
-                padding: 0
+                padding: '5px 0'
             }}>
                 <ListItemButton
                     sx={{
@@ -118,12 +118,18 @@ const NavBarComponent = () => {
                                 minWidth: 0,
                                 mr: open ? 2 : 'auto',
                                 justifyContent: 'left',
-                                color: "rgb(231, 44, 72)"
+                                color: "rgb(78, 75, 72)",
+                                marginRight: '12px'
                             }}>
                             {item.icon}
                         </ListItemIcon>
                     }
-                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0, margin: 0 }} />
+                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0, margin: 0, textTransform: 'none',
+fontSize: '16px',
+textAlign: 'left',
+fontWeight: '500',
+letterSpacing: '0px',
+color: 'rgb(78, 75, 72)' }} />
                 </ListItemButton>
             </ListItem>
         );
@@ -174,7 +180,7 @@ const NavBarComponent = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                background: 'rgb(240, 242, 245)!important'
+                background: 'rgb(231, 44, 72)!important'
             }}>
                 {open ?
                     <NavLink
@@ -191,7 +197,7 @@ const NavBarComponent = () => {
                             style={{
                                 fontWeight: 'bold',
                                 fontSize: '25px',
-                                color: "#ed1b24"
+                                color: "white"
                             }}>
                             {FormBuilder}
                         </Typography>
@@ -203,10 +209,12 @@ const NavBarComponent = () => {
                     onClick={handleDrawerToggle}
                     edge="start"
                 >
-                    <MenuIcon />
+                    <MenuIcon sx={{ color: "white" }} />
                 </IconButton>
             </DrawerHeader>
-            <Divider />
+            <Divider sx={{
+                marginBottom: '15px'
+            }} />
             {/* {SpecificStory != undefined ?
                     <SpecificStory /> :
                     <>{itemsList.map((item, index) => (<MenuItem item={item} key={index} />))}</>

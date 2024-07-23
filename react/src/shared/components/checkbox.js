@@ -1,7 +1,8 @@
 import { Box, Checkbox, FormControl, FormControlLabel, TextField, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 
-const CheckBoxComponent = ({ isChecked, label, value, index, handleCheckBoxChange, isDisabled }) => {
+const CheckBoxComponent = ({ isChecked, label, value, index, handleChange, isDisabled }) => {
+  console.log(label)
   return (
     <FormControlLabel
       key={index}
@@ -15,7 +16,7 @@ const CheckBoxComponent = ({ isChecked, label, value, index, handleCheckBoxChang
           disabled={isDisabled}
           index={index}
           color="primary"
-          onChange={handleCheckBoxChange}
+          onChange={handleChange}
         />
       }
       label={<Typography className={value} style={{

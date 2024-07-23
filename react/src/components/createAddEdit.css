@@ -21,6 +21,10 @@
     -webkit-text-fill-color: black;
 }
 
+.buttons {
+    margin: 0px 10px;
+}
+
 img.MuiCardMedia-root.MuiCardMedia-media {
     border-radius: 10px;
     cursor: pointer;
