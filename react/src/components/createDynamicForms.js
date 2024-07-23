@@ -71,6 +71,7 @@ const CreateDynamicForms = () => {
 
     const handleOpenDiv = (id) => {
         setId(id);
+        if(!isEdit)
         setIsShown(true);
     }
 
@@ -111,7 +112,7 @@ const CreateDynamicForms = () => {
         setAutoCompleteOptions(data?.selectedOptions)
         setIsEdit(true);
     }
-
+    console.log(autoCompleteOptions)
     const onChangeLabel = (event) => {
         setLabelValue(event?.target?.value)
     }
@@ -132,11 +133,15 @@ const CreateDynamicForms = () => {
     }
 
     const handleAddOptions = (data, inputValue, index) => {
-        let value = (formData?.find((value) => value?.id === data?.id));
+        var dataValue = JSON.parse(JSON.stringify(formData));
+        let value = (dataValue?.find((value) => value?.id === data?.id));
+        console.log(value)
         let valueData = (value?.selectedOptions?.splice(0, 0, {
             key: inputValue,
             value: uuidv4()
         }));
+        setFormData(dataValue)
+        console.log(valueData)
     }
 
     const handleRemoveOptions = (data, inputValue, index) => {
@@ -144,12 +149,9 @@ const CreateDynamicForms = () => {
         console.log(data, inputValue, index, dataValue)
         let value = (dataValue?.find((value) => value?.id === data?.id));
         console.log(value)
-        let valueData = (value?.selectedOptions?.splice(index, 1));
+        let valueData = (value?.selectedOptions?.splice(data?.id, 1));
         console.log(valueData)
-        let selectedValue = (dataValue?.find((value) => value?.id === data?.id));
-        let valueData12 = (selectedValue?.selectedOptions?.splice(index, 1));
-
-        setFormData(valueData12)
+        setFormData(dataValue)
     }
 
     const handleChangeAutoComplete = (data, event, selectedValue) => {
@@ -263,7 +265,7 @@ const CreateDynamicForms = () => {
                                                                                                 </Grid>
                                                                                             </Grid> :
                                                                                             data?.key === "autocomplete" ?
-                                                                                                <Grid container xl={12}>
+                                                                                                <Grid container xl={12} className={isEdit? "disabled": "enabled"}>
                                                                                                     <Grid item xl={4} sx={{ textAlign: "left" }}>
                                                                                                         <LabelComponent value={data?.labelName} />
                                                                                                     </Grid>
@@ -353,35 +355,69 @@ const CreateDynamicForms = () => {
                                                                                                     <>
                                                                                                         <Grid container xl={12} sx={{ margin: "0 10px 0 0" }}>
                                                                                                             <Grid container xl={12} sx={{
-                                                                                                                justifyContent: 'center',
+                                                                                                                justifyContent: 'left',
                                                                                                                 margin: "10px 10px 0 0"
                                                                                                             }}>
-                                                                                                                <Grid item xl={4} sx={{ margin: "0px 10px 0 0" }}>
-                                                                                                                    <InputComponent disabled={false} handleChange={onChangeLabel} value={labelValue} />
+                                                                                                                <Grid item xl={12} sx={{
+                                                                                                                    margin: "0px 10px 0 0",
+                                                                                                                    display: 'flex',
+                                                                                                                    justifyContent: 'left',
+                                                                                                                    alignItems: 'center'
+                                                                                                                }}>
+                                                                                                                    <Grid item xl={4}><LabelComponent value={"Auto Complete Label Name"} /></Grid>
+                                                                                                                    <Grid item xl={6}><InputComponent disabled={false} handleChange={onChangeLabel} value={labelValue} /></Grid>
                                                                                                                 </Grid>
-                                                                                                                <Grid container xl={4} sx={{ margin: "0px 10px 0 0" }}>
-                                                                                                                    <InputComponent disabled={false} handleChange={onChangeInput} value={inputValue} />
-                                                                                                                    <IconButton aria-label="Example" onClick={() => handleAddOptions(data, inputValue, index)}>
-                                                                                                                        <AddCircleIcon />
-                                                                                                                    </IconButton>
+                                                                                                                <Grid item xl={12} sx={{
+                                                                                                                    margin: "10px 10px 0 0",
+                                                                                                                    display: 'flex',
+                                                                                                                    justifyContent: 'left',
+                                                                                                                    alignItems: 'center'
+                                                                                                                }}>
+                                                                                                                    <Grid item xl={4}><LabelComponent value={"Auto Complete Options"} /></Grid>
+                                                                                                                    <Grid item xl={6} sx={{
+                                                                                                                        display: 'flex',
+                                                                                                                        justifyContent: 'left',
+                                                                                                                    }}>
+                                                                                                                        <InputComponent disabled={false} handleChange={onChangeInput} value={inputValue} />
+                                                                                                                        <IconButton aria-label="Example" onClick={() => handleAddOptions(data, inputValue, index)}>
+                                                                                                                            <AddCircleIcon />
+                                                                                                                        </IconButton>
+                                                                                                                    </Grid>
                                                                                                                 </Grid>
+
                                                                                                             </Grid>
-                                                                                                            <Grid item xl={4} sx={{ margin: "0 10px 0 0" }}>
-                                                                                                                <Typography>Selected Options</Typography>
+                                                                                                            <Grid item xl={12} sx={{
+                                                                                                                display: 'flex',
+                                                                                                                justifyContent: 'flex-start',
+                                                                                                                alignItems: 'center',
+                                                                                                            }}>
+                                                                                                                <Grid item xl={4}>
+                                                                                                                <LabelComponent value={"Selected Options"} />
+                                                                                                                </Grid>
+                                                                                                                <Grid item xl={4}>
                                                                                                                 {
-                                                                                                                    autoCompleteOptions?.map((val) => (
-                                                                                                                        <Grid container sx={{
-                                                                                                                            justifyContent: 'center',
+                                                                                                                    autoCompleteOptions?.map((val, index) => (
+                                                                                                                        <Grid item xl={12} sx={{
+                                                                                                                            display: 'flex',
+                                                                                                                            justifyContent: 'flex-start',
                                                                                                                             alignItems: 'center',
-                                                                                                                            margin: "10px 10px 0 0"
                                                                                                                         }}>
-                                                                                                                            <Typography>{val?.key}</Typography>
-                                                                                                                            <IconButton aria-label="Example" onClick={() => handleRemoveOptions(data, val, index)}>
-                                                                                                                                <RemoveCircleOutlineIcon />
-                                                                                                                            </IconButton>
+                                                                                                                            <Typography>{index + 1}. </Typography>
+                                                                                                                            &nbsp;&nbsp;
+                                                                                                                            <Grid item sx={{
+                                                                                                                                display: 'flex',
+                                                                                                                                justifyContent: 'space-between',
+                                                                                                                                alignItems: 'center',
+                                                                                                                            }}>
+                                                                                                                                <Typography>{val?.key}</Typography>
+                                                                                                                                <IconButton aria-label="Example" onClick={() => handleRemoveOptions(data, val, index)}>
+                                                                                                                                    <RemoveCircleOutlineIcon />
+                                                                                                                                </IconButton>
+                                                                                                                            </Grid>
                                                                                                                         </Grid>
                                                                                                                     ))
                                                                                                                 }
+                                                                                                                </Grid>
                                                                                                             </Grid>
                                                                                                         </Grid>
                                                                                                     </> :
@@ -400,6 +436,7 @@ const CreateDynamicForms = () => {
                                                                                                         data?.value === "Select" ?
                                                                                                             <>
                                                                                                                 <Grid item xl={4} sx={{ margin: "0 10px 0 0" }}>
+                                                                                                                    <LabelComponent value={"Label Name"} />
                                                                                                                     <InputComponent disabled={false} handleChange={onChangeLabel} value={labelValue} />
                                                                                                                 </Grid>
                                                                                                                 <Grid container xl={4}>

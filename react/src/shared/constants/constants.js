@@ -10,11 +10,6 @@ export const formItems = [
         id: "2"
     },
     {
-      key: "select",
-      value: "Select",
-        id: "3"
-    },
-    {
       key: "autocomplete",
       value: "Auto Complete",
         id: "4"

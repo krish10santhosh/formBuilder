@@ -117,3 +117,9 @@ img.MuiCardMedia-root.MuiCardMedia-media {
 .nav-tabs .nav-link.active {
     border-bottom: 2px solid !important;
 }
+
+.disabled {
+    background: gainsboro;
+    padding: 10px 0;
+    cursor: no-drop;
+}
